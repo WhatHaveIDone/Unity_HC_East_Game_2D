@@ -7060,6 +7060,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 790143327}
   m_CullTransparentMesh: 0
+--- !u!1 &798681969
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 798681971}
+  - component: {fileID: 798681970}
+  m_Layer: 0
+  m_Name: MessageTest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &798681970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798681969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edbebf194e459ea41a13a17374762573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &798681971
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798681969}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &923690460
 GameObject:
   m_ObjectHideFlags: 0
@@ -7868,6 +7911,7 @@ GameObject:
   - component: {fileID: 1530438990}
   - component: {fileID: 1530438994}
   - component: {fileID: 1530438993}
+  - component: {fileID: 1530438995}
   m_Layer: 0
   m_Name: Doge
   m_TagString: Untagged
@@ -7995,6 +8039,30 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1530438995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530438989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eff55a774dc85b4bbb3b0c757a0f8e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  jump: 350
+  hp: 500
+  isGround: 0
+  coin: 0
+  sndHit: {fileID: 0}
+  sndSlide: {fileID: 0}
+  sndJump: {fileID: 0}
+  sndCoin: {fileID: 8300000, guid: 2c2175f233e380f44965457a6254232e, type: 3}
+  ani: {fileID: 1530438990}
+  rid: {fileID: 1530438994}
+  cap: {fileID: 1530438993}
 --- !u!1001 &1568122350
 PrefabInstance:
   m_ObjectHideFlags: 0
