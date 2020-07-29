@@ -64,7 +64,10 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Car.cs" />
     <Compile Include="Assets\Scripts\First.cs" />
+    <Compile Include="Assets\Scripts\LearnAPI.cs" />
+    <Compile Include="Assets\Scripts\LearnAPIStatic.cs" />
     <Compile Include="Assets\Scripts\LearnEventMethod.cs" />
+    <Compile Include="Assets\Scripts\LearnMethodReturn.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <None Include="Assets\BayatGames\Free Platform Game Assets\Readme.txt" />
     <Reference Include="UnityEngine">
