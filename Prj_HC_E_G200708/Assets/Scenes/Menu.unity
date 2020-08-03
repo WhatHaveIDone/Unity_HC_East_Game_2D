@@ -303,6 +303,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &459260297 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 31964673371605646, guid: 866e6c905e285b1438f9ff3601062b79,
+    type: 3}
+  m_PrefabInstance: {fileID: 31964672990300935}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f38ec458d5233144e94166e36b64dde2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &815017024
 GameObject:
   m_ObjectHideFlags: 0
@@ -662,7 +674,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1362712682}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 459260297}
+        m_MethodName: Quit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1362712682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -786,8 +809,31 @@ MonoBehaviour:
         m_MethodName: PlayOneShot
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgument: {fileID: 8300000, guid: 2c2175f233e380f44965457a6254232e,
+            type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 459260297}
+        m_MethodName: ChangeScence
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 459260297}
+        m_MethodName: DelayChangeScence
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1419,3 +1465,72 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &31964672990300935
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 31964673371605645, guid: 866e6c905e285b1438f9ff3601062b79,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.9316628
+      objectReference: {fileID: 0}
+    - target: {fileID: 31964673371605645, guid: 866e6c905e285b1438f9ff3601062b79,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.390393
+      objectReference: {fileID: 0}
+    - target: {fileID: 31964673371605645, guid: 866e6c905e285b1438f9ff3601062b79,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.07328617
+      objectReference: {fileID: 0}
+    - target: {fileID: 31964673371605645, guid: 866e6c905e285b1438f9ff3601062b79,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 31964673371605645, guid: 866e6c905e285b1438f9ff3601062b79,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 31964673371605645, guid: 866e6c905e285b1438f9ff3601062b79,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 31964673371605645, guid: 866e6c905e285b1438f9ff3601062b79,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 31964673371605645, guid: 866e6c905e285b1438f9ff3601062b79,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 31964673371605645, guid: 866e6c905e285b1438f9ff3601062b79,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 31964673371605645, guid: 866e6c905e285b1438f9ff3601062b79,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 31964673371605645, guid: 866e6c905e285b1438f9ff3601062b79,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 31964673371605647, guid: 866e6c905e285b1438f9ff3601062b79,
+        type: 3}
+      propertyPath: m_Name
+      value: ScenceCtrl
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 866e6c905e285b1438f9ff3601062b79, type: 3}
