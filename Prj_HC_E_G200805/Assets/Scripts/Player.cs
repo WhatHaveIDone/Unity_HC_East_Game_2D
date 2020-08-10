@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -8,8 +9,12 @@ public class Player : MonoBehaviour
 	public float speed = 5;
 	[Header("跳越高度"), Range(0,1000)]
 	public int jump = 350;
+
 	[Header("生命值"), Range(0,1000)]
-	public float hp = 500;
+	public float hp = 100;
+	[Header("血條")]
+	public Image imageHp;
+	private float hpMax;
 
 	public bool isGround;
 	public int coin;
@@ -20,6 +25,9 @@ public class Player : MonoBehaviour
 	public AudioClip sndJump;
 	public AudioClip sndCoin;
 
+	[Header("金幣數量")]
+	public Text textCoin;
+
 	[Header("動畫控制器")]
 	public Animator anim;
 	[Header("剛體2D")]
@@ -28,6 +36,14 @@ public class Player : MonoBehaviour
 	public CapsuleCollider2D capc;
 	[Header("音頻來源")]
 	public AudioSource auds;
+
+	[Header("死亡畫面")]
+	public GameObject final;
+	private bool dead;
+
+	[Header("過關標題與金幣")]
+	public Text textTitle;
+	public Text textFinalCoin;
 
 	#endregion
 
@@ -46,7 +62,7 @@ public class Player : MonoBehaviour
 		// transform.up			此物件的上方 Y 預設為 1
 		// transform.right		此物件的右方 X 預設為 1
 		// transform.forward	此物件的前方 Z 預設為 1
-		Gizmos.DrawRay(transform.position + new Vector3(-0.05f,-0.0f) , -transform.up*0.8f);
+		Gizmos.DrawRay(transform.position + new Vector3(-0.05f,-0.05f) , -transform.up*0.8f);
 	}
 
 	/// <summary> 移動 </summary>
@@ -121,27 +137,46 @@ public class Player : MonoBehaviour
 	}
 
 	/// <summary> 吃金幣 </summary>
-	public void GetCoin()
+	public void GetCoin(GameObject obj)
 	{
-
+		coin++;								// 遞增1
+		auds.PlayOneShot(sndCoin,1.2f);		// 播放音效
+		textCoin.text = "金幣數量:" + coin; // 文字介面.文字 = 字串+整數
+		Destroy(obj,0);						// 刪除(金幣物件,延遲時間)
 	}
 
 	/// <summary> 受傷 </summary>
-	public void Hurt()
+	public void Hurt(GameObject obj)
 	{
+		// 扣血 hp-= 10
+		hp -= 10;
+		// 播放音效
+		auds.PlayOneShot(sndHit);
+		// 更新血條
+		imageHp.fillAmount = hp / hpMax;
+		// 刪除障礙物
+		Destroy(obj);
 
+		if (hp <= 0) Died();
 	}
 
 	/// <summary> 死亡 </summary>
 	public void Died()
 	{
 		anim.SetTrigger("DeadTrigger");
+		final.SetActive(true);
+		speed = 0;
+		dead = true;
+		textTitle.text = " 可憐哪~ ";
 	}
 
 	/// <summary> 通關 </summary>
 	public void Win()
 	{
-
+		speed = 0;				// 速度 = 0
+		final.SetActive(true);  // 顯示結束畫面
+		textTitle.text = " 恭喜過關 ";
+		textFinalCoin.text = " 本次金幣數量 " + coin;
 	}
 
 
@@ -153,15 +188,36 @@ public class Player : MonoBehaviour
 	
 	void Start()
     {
-        
+		hpMax = hp; // 最大血量 = 血量
     }
 
     void Update()	// 更新,方法沒有放在這就不會動
     {
+		if (dead) return;   // 如果 死亡 跳出
+
+		if (transform.position.y <= -5) Died();	// 掉入深坑死亡
+
 		Move();
 		Jump();
 		Slide();
     }
-	
+
+	// 碰觸 (觸發) 事件:
+	// 兩個物件必須有一個勾選 Is Trigger
+	// Enter 進入時執行一次
+	// Stay 碰撞時執行一次
+	// Exit 離開時執行一次
+	// 參數 : 紀錄碰撞到的碰撞資訊
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		// 如果 '碰撞資訊.標籤' 等於 '金幣' 吃掉金幣
+		if (collision.tag == "Coin") GetCoin(collision.gameObject);
+
+		// 如果 碰到障礙物 受傷
+		if (collision.tag == "Trap") Hurt(collision.gameObject);
+
+		if (collision.tag == "Portal") Win();
+	}
+
 	#endregion
 }
